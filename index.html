@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clasificador NLP Profesional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+
+  <div class="bg-gray-800 p-6 rounded-2xl shadow-xl w-96">
+    <h1 class="text-2xl font-bold mb-4 text-center">AI Sentiment Analyzer</h1>
+
+    <textarea id="inputText" class="w-full p-2 rounded text-black mb-4"
+      placeholder="Escribe una opinión técnica..."></textarea>
+
+    <button onclick="analizar()" 
+      class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded w-full">
+      Analizar
+    </button>
+
+    <p id="resultado" class="mt-4 text-center font-semibold"></p>
+
+    <p class="text-xs text-gray-400 mt-4 text-center">
+      Modelo: Embedding + Dense NN | NLP básico
+    </p>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
