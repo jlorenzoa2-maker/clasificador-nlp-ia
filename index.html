@@ -1,19 +1,56 @@
-const dataset = [
-  { text: "El servidor Proxmox es muy estable", label: 1 },
-  { text: "La laptop tiene excelente rendimiento", label: 1 },
-  { text: "El sistema responde rápido y sin errores", label: 1 },
-  { text: "La aplicación funciona correctamente", label: 1 },
-  { text: "El despliegue en Docker fue exitoso", label: 1 },
-  { text: "La interfaz es fácil de usar", label: 1 },
-  { text: "El equipo trabaja de forma eficiente", label: 1 },
-  { text: "La conexión de red es estable", label: 1 },
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clasificador de Comentarios Tecnológicos</title>
 
-  { text: "El despliegue en Docker falló por memoria", label: 0 },
-  { text: "El sistema se congela constantemente", label: 0 },
-  { text: "La computadora está muy lenta", label: 0 },
-  { text: "La aplicación muestra demasiados errores", label: 0 },
-  { text: "El servidor se cayó durante la prueba", label: 0 },
-  { text: "La red pierde conexión a cada momento", label: 0 },
-  { text: "El software no responde correctamente", label: 0 },
-  { text: "El rendimiento del equipo es deficiente", label: 0 }
-];
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+
+  <div class="bg-gray-800 p-6 rounded-2xl shadow-xl w-full max-w-md">
+    
+    <h1 class="text-2xl font-bold mb-3 text-center">
+      Clasificador de Opiniones con IA
+    </h1>
+
+    <p class="text-sm text-gray-300 text-center mb-4">
+      Escribe un comentario relacionado con tecnología, software, servidores o dispositivos.
+      El modelo intentará clasificarlo como positivo, negativo o incierto.
+    </p>
+
+    <textarea 
+      id="inputText" 
+      class="w-full p-3 rounded text-black mb-4 resize-none"
+      rows="4"
+      placeholder="Ejemplo: El servidor Proxmox es muy estable">
+    </textarea>
+
+    <button 
+      onclick="analizar()" 
+      class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded w-full font-semibold">
+      Analizar comentario
+    </button>
+
+    <div class="mt-5 bg-gray-700 p-4 rounded-lg">
+      <p class="text-center text-sm text-gray-300">Resultado del análisis:</p>
+      <p id="resultado" class="mt-2 text-center text-xl font-bold"></p>
+    </div>
+
+    <p class="text-xs text-gray-400 mt-4 text-center">
+      Modelo utilizado: Red neuronal secuencial con procesamiento básico de lenguaje natural.
+    </p>
+
+  </div>
+
+  <!-- Archivo JavaScript del modelo -->
+  <script src="app.js"></script>
+
+</body>
+</html>
